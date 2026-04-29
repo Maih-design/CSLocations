@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل بيانات مواقع مراكز الخدمة</title>
+    <style>
+        :root {
+            --primary-color: #2980b9;
+            --secondary-color: #2c3e50;
+            --bg-color: #f4f7f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: var(--bg-color);
+            padding: 0;
+            margin: 0;
+            color: var(--secondary-color);
+        }
+
+        /* تنسيق الهيدر / البانر */
+        .header {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .header img {
+            max-width: 120px; /* تحكمي في حجم الشعار من هنا */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            margin: 5px 0;
+            font-size: 20px;
+            color: var(--secondary-color);
+        }
+
+        .header h2 {
+            margin: 5px 0;
+            font-size: 16px;
+            font-weight: normal;
+            color: #7f8c8d;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            max-width: 450px;
+            margin: 0 auto 40px auto;
+        }
+
+        label {
+            display: block;
+            text-align: right;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* تنسيق القائمة المنسدلة والحقول */
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: inherit;
+            background-color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover { background-color: #2171a3; }
+        button:disabled { background-color: #bdc3c7; }
+
+        #status {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #7f8c8d;
+            min-height: 20px;
+        }
+
+        /* تنسيق التذييل (الفوتر) */
+        .footer {
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 13px;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="C:\Users\Administrator\Desktop\statistics\scripts\logo.png" alt="شعار الهيئة">
+    <h1>الهيئة العامة للتأمين الصحي</h1>
+    <h2>الادارة العامة للخدمات الطبية</h2>
+</div>
+
+<div class="container">
+    <h3 style="margin-top: 0;">تسجيل الموقع الجغرافي للمركز</h3>
+    <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+    
+    <label for="branchName">اختر الفرع:</label>
+    <select id="branchName">
+        <option value="">-- اختر من القائمة --</option>
+        <option value="رئاسة الهيئة">رئاسة الهيئة</option>
+        <option value="فرع القاهرة">فرع القاهرة</option>
+        <option value="فرع الجيزة">فرع الجيزة</option>
+        <option value="فرع القليوبية">فرع القليوبية</option>
+        <option value="فرع الغربية">فرع الغربية</option>
+        <option value="فرع دمياط">فرع دمياط</option>
+        <option value="فرع كفر الشيخ">فرع كفر الشيخ</option>
+        <option value="فرع الدقهلية">فرع الدقهلية</option>
+        <option value="فرع شمال غرب الدلتا">فرع شمال غرب الدلتا</option>
+        <option value="منطقة مطروح">منطقة مطروح</option>
+        <option value="منطقة البحر الاحمر">منطقة البحر الاحمر</option>
+        <option value="فرع الفيوم">فرع الفيوم</option>
+        <option value="فرع بنى سويف">فرع بنى سويف</option>
+        <option value="فرع المنيا">فرع المنيا</option>
+        <option value="فرع اسيوط">فرع اسيوط</option>
+        <option value="فرع سوهاج">فرع سوهاج</option>
+        <option value="فرع قنا">فرع قنا</option>
+        <option value="فرع المنوفية">فرع المنوفية</option>
+        <option value="فرع الشرقية">فرع الشرقية</option>
+        <option value="فرع البحيرة">فرع البحيرة</option>
+        <option value="فرع شمال سيناء">فرع شمال سيناء</option>
+        <option value="منطقة الوادى الجديد">منطقة الوادى الجديد</option>
+    </select>
+    
+    <label for="centerName">اسم مركز خدمة العملاء:</label>
+    <input type="text" id="centerName" placeholder="مثلاً: مركز خدمة عملاء مدينة نصر">
+    
+    <button id="sendBtn" onclick="sendData()">إرسال الموقع والبيانات</button>
+    
+    <div id="status"></div>
+</div>
+
+<div class="footer">
+    تم التنفيذ بواسطة: <strong>Dr. Mai Hussein</strong>
+</div>
+
+<script>
+    // الرابط الخاص بكِ من Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzUwM227uwfC45SlrdKmowS8Rarvk2nOpMAK5NXh1pu2BYKCb-FuEXslXfErQOtfSvl/exec";
+
+    function sendData() {
+        const branch = document.getElementById('branchName').value;
+        const center = document.getElementById('centerName').value.trim();
+        const status = document.getElementById('status');
+        const btn = document.getElementById('sendBtn');
+
+        if (!branch || !center) {
+            alert("❌ فشل الإرسال: يرجى اختيار اسم الفرع وكتابة اسم المركز.");
+            return;
+        }
+
+        if (navigator.geolocation) {
+            btn.disabled = true;
+            status.innerHTML = "جاري تحديد الموقع الجغرافي...";
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const payload = {
+                        branch: branch,
+                        center: center,
+                        lat: position.coords.latitude,
+                        lon: position.coords.longitude
+                    };
+
+                    status.innerHTML = "جاري إرسال البيانات...";
+
+                    fetch(scriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: JSON.stringify(payload)
+                    })
+                    .then(() => {
+                        alert("✅ تم إرسال الموقع والبيانات بنجاح!");
+                        status.innerHTML = "تم التسجيل بنجاح. شكراً لك.";
+                        document.getElementById('branchName').value = "";
+                        document.getElementById('centerName').value = "";
+                        btn.disabled = false;
+                    })
+                    .catch(error => {
+                        alert("❌ حدث خطأ أثناء الإرسال.");
+                        btn.disabled = false;
+                        status.innerHTML = "";
+                    });
+                },
+                (error) => {
+                    alert("❌ فشل تحديد الموقع: تأكد من تفعيل الـ GPS والموافقة على طلب الموقع.");
+                    btn.disabled = false;
+                    status.innerHTML = "";
+                },
+                { enableHighAccuracy: true } // لزيادة دقة اللوكيشن
+            );
+        } else {
+            alert("المتصفح لا يدعم تحديد الموقع.");
+        }
+    }
+</script>
+
+</body>
+</html>
